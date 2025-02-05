@@ -1,17 +1,17 @@
-import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { useAppSelector, useAppDispatch } from './hooks';
-import { hideNotification } from './features/notificationSlice';
-import Navigation from './components/Navigation';
-import HomePage from './pages/HomePage';
-import CartPage from './pages/CartPage';
-import AuthPage from './pages/AuthPage';
-import RegisterPage from './pages/RegisterPage';
-import { NotificationContainer } from './components/Notification';
+import { hideNotification } from './features/notification/notificationSlice';
+import Navigation from './components/Navigation/Navigation';
+import { NotificationContainer } from './components/Notification/Notification';
+import HomePage from './pages/Home/HomePage';
+import CartPage from './pages/Cart/CartPage';
+import AuthPage from './pages/Auth/AuthPage';
+import RegisterPage from './pages/Register/RegisterPage';
+import type { RootState } from './types/store';
 
 function App() {
   const dispatch = useAppDispatch();
-  const notifications = useAppSelector((state) => state.notification.notifications);
+  const notifications = useAppSelector((state: RootState) => state.notification.notifications);
 
   return (
     <Router>
